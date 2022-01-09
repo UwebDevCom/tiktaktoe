@@ -3,8 +3,6 @@ const app = express();
 PORT = process.env.PORT || 5001;
 const cors = require("cors");
 
-const {results} = require("../client/src/mock/results");
-
 const { graphqlHTTP } = require('express-graphql');
 const graphql = require("graphql");
 const { GraphQLSchema, GraphQLObjectType, GraphQLInt, GraphQLString, GraphQLList } = graphql;
@@ -89,7 +87,7 @@ app.use('/graphql', graphqlHTTP({
 mongoose.connect(dbURI, {useNewUrlParser: true}).then((data)=>{
 
    return app.listen(PORT, () => {
-        console.log('Server runnig' ,results)
+        console.log('Server runnig' ,data)
     })
 
 }).catch(err=>{
