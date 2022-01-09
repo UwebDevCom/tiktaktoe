@@ -1,6 +1,6 @@
 const express = require("express");
 const app = express();
-PORT = 5001;
+PORT = process.env.PORT || 5001;
 const cors = require("cors");
 
 const {results} = require("../client/src/mock/results");
@@ -84,12 +84,12 @@ app.use('/graphql', graphqlHTTP({
 
 
 mongoose.connect(dbURI, {useNewUrlParser: true}).then((data)=>{
-    if(process.env.PORT){
+
     app.use(express.static());
-   return app.listen(process.env.PORT, () => {
+   return app.listen(PORT, () => {
         console.log('Server runnig' ,results)
     })
-}
+
 }).catch(err=>{
     console.log(err)
 });
