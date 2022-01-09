@@ -84,12 +84,13 @@ app.use('/graphql', graphqlHTTP({
 
 
 mongoose.connect(dbURI, {useNewUrlParser: true}).then((data)=>{
-   if(process.env.NODE_ENV === "production"){
-    app.use(express.static());
-   }
-   return app.listen(PORT, () => {
+   if(process.env.PORT === "production"){
+    // app.use(express.static());
+   
+   return app.listen(process.env.PORT, () => {
         console.log('Server runnig' ,results)
     })
+}
 }).catch(err=>{
     console.log(err)
 });
