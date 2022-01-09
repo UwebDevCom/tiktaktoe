@@ -13,6 +13,7 @@ const mongoose = require('mongoose');
 
 // const dbURI = 'mongodb+srv://tiktaktoe:ryklrvUOQV7mBgkq@tiktaktoe.g2iap.mongodb.net/results';
 
+// mongodb+srv://tiktaktoe:ryklrvUOQV7mBgkq@tiktaktoe.n9z04.mongodb.net/results?retryWrites=true&w=majority
 const dbURI =process.env.MONGODB_URI;
 
 const ResultsSchema = new mongoose.Schema({
@@ -87,7 +88,6 @@ app.use('/graphql', graphqlHTTP({
 
 mongoose.connect(dbURI, {useNewUrlParser: true}).then((data)=>{
 
-    app.use(express.static());
    return app.listen(PORT, () => {
         console.log('Server runnig' ,results)
     })
