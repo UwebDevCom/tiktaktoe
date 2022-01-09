@@ -60,7 +60,7 @@ const Mutation = new GraphQLObjectType({
                 results: {type: GraphQLString}
             },
         async resolve(parent,args){
-                if(!args.allResults.some(item => item.id === args.id)){
+                if(!(await ResultsMon.find().some(item => item.id === args.id))){
                     const result = new ResultsMon({player:args.player, results: args.results })
                     await result.save();
                     return args
