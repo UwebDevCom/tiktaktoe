@@ -11,7 +11,7 @@ const { GraphQLSchema, GraphQLObjectType, GraphQLInt, GraphQLString, GraphQLList
 
 const mongoose = require('mongoose');
 
-const dbURI = 'mongodb+srv://tiktaktoe:ryklrvUOQV7mBgkq@tiktaktoe.g2iap.mongodb.net/results';
+const dbURI = process.env.MONGODB_URI;
 
 const ResultsSchema = new mongoose.Schema({
     player: {
